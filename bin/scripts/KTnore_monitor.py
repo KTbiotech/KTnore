@@ -33,8 +33,6 @@ from shutil import copyfile
 
 ####
 this=os.getcwd()
-
-
 ########
 ## đầu tiên chạy chương trình monitor.py trước dưới background
 # sig folder cần người dùng cup cấp bỡi
@@ -199,23 +197,23 @@ def realtime(jobid,logfile,sig_folder,mon_folder,timeout,tempfolder,summary_file
 def main():
 
     parser = argparse.ArgumentParser(
-        prog='Total.py',
-        description="something about Total.py"
+        prog='monitor_supper.py',
+        description="The script monitors and links all sub-script files when the realtime process starts."
     )
     parser.add_argument("-id", "--job-id", dest="jobid", required=True,
-        help="Some thing about jobid")
+        help="unique project id")
     parser.add_argument("-log", "--log-file", dest="log_monitor", default=True,
-        help="something about log_monitor")
+        help="log monitor file output")
     parser.add_argument("-sig", "--sig_folder", dest="sig_folder",required=True,
-        help="something about sig_folder")
+        help="")
     parser.add_argument("-mon", "--mon-folder", dest="mon_folder", required=True,
-        help="something about mon_folder")
+        help="mon_folder")
     parser.add_argument("-gpy", "--summary-file", dest="summary_file", required=True,
-        help="something about summary_file")
+        help="summary file created by basecalling ")
     parser.add_argument("-temp", "--tempfolder", dest="tempfolder", default=True,
-        help="something about tempfolder")
+        help="temp folder")
     parser.add_argument("-toff", "--timeout", dest="timeout",default=5000000,
-        help="something about timeout")
+        help="after the timeout (s), there is no change in the signal directory, the realtime process will stop")
     
     args=parser.parse_args()
 
