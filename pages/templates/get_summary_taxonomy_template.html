@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basis Stats</title>
+    <!-- including ECharts file -->
+    <script src="echarts.min.js"></script>
+    <link href="https://unpkg.com/tabulator-tables@4.6.1/dist/css/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.6.1/dist/js/tabulator.min.js"></script>
+</head>
+<body>
+    <!-- prepare a DOM container with width and height -->
+    <div id="get_taxonomy_summary" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // based on prepared DOM, initialize echarts instance
+        var get_taxonomy_summary = echarts.init(document.getElementById('get_taxonomy_summary'));
+
+        option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b}: {c} ({d}%)'
+    },
+    legend: {
+        orient: 'vertical',
+        left: 10,
+        data: {{data_label_taxonomy_legend_plot1}}
+    },
+    series: [
+        
+        {
+            name: "",
+            type: 'pie',
+            radius: ['40%', '55%'],
+            label: {
+                formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                backgroundColor: '#eee',
+                borderColor: '#aaa',
+                borderWidth: 1,
+                borderRadius: 4,
+                
+                rich: {
+                    a: {
+                        color: '#999',
+                        lineHeight: 22,
+                        align: 'center'
+                    },
+                    
+                    hr: {
+                        borderColor: '#aaa',
+                        width: '100%',
+                        borderWidth: 0.5,
+                        height: 0
+                    },
+                    b: {
+                        fontSize: 16,
+                        lineHeight: 33
+                    },
+                    per: {
+                        color: '#eee',
+                        backgroundColor: '#334455',
+                        padding: [2, 4],
+                        borderRadius: 2
+                    }
+                }
+            },
+            data: [{{data_taxonomy_legend_plot1}}
+                ]
+               
+        }
+    ]
+};
+
+        
+        // use configuration item and data specified to show chart
+        get_taxonomy_summary.setOption(option);
+    </script>
+
+
+</body>
+</html>

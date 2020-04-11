@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basis Stats</title>
+    <!-- including ECharts file -->
+    <script src="echarts.min.js"></script>
+    <link href="https://unpkg.com/tabulator-tables@4.6.1/dist/css/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.6.1/dist/js/tabulator.min.js"></script>
+</head>
+<body>
+    <!-- prepare a DOM container with width and height -->
+    <div id="get_basis" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // based on prepared DOM, initialize echarts instance
+        var basis_stats = echarts.init(document.getElementById('get_basis'));
+
+        var option = {
+            xAxis: {
+                type: 'category',
+                data: {{bin_hist_len_basis}}
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: {{bin_hist_value_basis}},
+                type: 'bar'
+    }]
+};
+
+        
+        // use configuration item and data specified to show chart
+        basis_stats.setOption(option);
+    </script>
+
+
+</body>
+</html>
