@@ -6,7 +6,7 @@ KTnore uses interactive local web through Ampps software, collecting and storing
 #### Usage
 ```
 python3 KTnore_monitor.py -h
-usage: monitor_supper.py [-h] -id JOBID [-log LOG_MONITOR] -sig SIG_FOLDER
+usage: KTnore_monitor.py [-h] -id JOBID [-log LOG_MONITOR] -sig SIG_FOLDER
                          -mon MON_FOLDER -gpy SUMMARY_FILE [-temp TEMPFOLDER]
                          [-toff TIMEOUT]
 
